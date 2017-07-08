@@ -9,7 +9,6 @@ import android.graphics.Paint;
 public abstract class Animation {
     protected int counter, limit, counterMotion, x, y;
     protected Paint paint;
-    private OnEndListener onEndListener;
 
     public Animation(int x, int y, Paint paint) {
         counter = 0;
@@ -25,7 +24,6 @@ public abstract class Animation {
             counter += counterMotion;
             return true;
         } else {
-            onEndListener.onEnd();
             return false;
         }
     }
@@ -33,9 +31,5 @@ public abstract class Animation {
     public boolean animate (Canvas canvas) {
         draw(canvas);
         return increaseCounter();
-    }
-
-    public void setOnEndListener(OnEndListener onEndListener) {
-        this.onEndListener = onEndListener;
     }
 }

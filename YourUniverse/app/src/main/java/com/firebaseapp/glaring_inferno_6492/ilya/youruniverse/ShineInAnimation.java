@@ -14,6 +14,8 @@ import java.util.LinkedList;
 public class ShineInAnimation extends Animation {
     private int w, h, faseCounter;
     private LinkedList<LightFall> lightFalls;
+    private LinkedList<Animation> animations;
+    private DrawThread tread;
 
     class LightFall {
         Point firstUp, firstDown, secondUp, secondDown, fromUp, fromDown;
@@ -77,7 +79,7 @@ public class ShineInAnimation extends Animation {
         }
     }
 
-    public ShineInAnimation(int x, int y, Paint paint, int w, int h) {
+    public ShineInAnimation(int x, int y, Paint paint, int w, int h, LinkedList<Animation> animations, DrawThread tread) {
         super(x, y, paint);
         this.w = w;
         this.h = h;
@@ -86,6 +88,8 @@ public class ShineInAnimation extends Animation {
         counterMotion = 1;
         faseCounter = 0;
         limit = 20;
+        this.animations = animations;
+        this.tread = tread;
         for (int i = 0; i < 3; i++) {
             switch ((int) Math.round(Math.random() * 3)) {
                 case 0:
@@ -117,5 +121,6 @@ public class ShineInAnimation extends Animation {
             counter = 0;
             faseCounter++;
         }
+        if (faseCounter == 3 && counter >= limit) animations.add(new PoofAnimation(w / 2, h / 2, (w + h) /2, paint, tread));
     }
 }
