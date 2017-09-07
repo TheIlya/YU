@@ -18,6 +18,7 @@ public class DrawThread extends Thread {
     private LinkedList<Universe> universes = new LinkedList<>();
     private UniverseView universeView;
     private LinkedList<Animation> animations;
+    private Narrator narrator;
 
     public DrawThread(SurfaceHolder surfaceHolder, UniverseView universeView){
         this.surfaceHolder = surfaceHolder;
@@ -25,6 +26,7 @@ public class DrawThread extends Thread {
         animations = new LinkedList<>();
         universes = new LinkedList<>();
         active = true;
+        narrator = new Narrator(universeView.getResources().getStringArray(R.array.story));
     }
 
     public void increaseUniverseEnergy () {
@@ -75,6 +77,9 @@ public class DrawThread extends Thread {
                         animation = null;
                     }
                 }
+                Paint p = new Paint();
+                p.setColor(Color.GREEN);
+                if (narrator.animate(canvas, 0, 100, 100, p)) active = false;
             } catch (NullPointerException n) {
             }
             finally {

@@ -121,6 +121,6 @@ public class ShineInAnimation extends Animation {
             counter = 0;
             faseCounter++;
         }
-        if (faseCounter == 3 && counter >= limit) animations.add(new PoofAnimation(w / 2, h / 2, (w + h) /2, paint, tread));
+        if (faseCounter == 3 && counter >= limit) animations.add(new PoofAnimation(w / 2, h / 2, (w + h) /2, paint, tread ));
     }
 }

@@ -15,4 +15,19 @@
     <string name="menu">Menu</string>
     <string name="vibration">Vibration</string>
     <string name="notifications">Notifications</string>
+    <string-array name="story">
+        <item>Добро пожаловать в пустоту.</item>
+        <item>Здесь ничего нет.</item>
+        <item>Попробуйте что-то создать.</item>
+        <item>Это вселенная.</item>
+        <item>Вы создали целый мир один раз коснувшись экрана.</item>
+        <item>Начните расширять свою вселенную.</item>
+
+        <item>Вы можете видеть, что ваша вселенная заполнила все доступное пространство.</item>
+        <item>Это не так.</item>
+        <item>.</item>
+        <item>Это вселенная.</item>
+        <item>Вы создали целый мир один раз коснувшись экрана.</item>
+        <item>Начните расширять свою вселенную.</item>
+    </string-array>
 </resources>
